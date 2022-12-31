@@ -1,10 +1,12 @@
-import {useState} from 'react'
+import {useState, useContext} from 'react'
+import {TaskContext} from '../context/TaskContext'
 
-function TaskForm({createTask}) {
+function TaskForm() {
 
     const [title, setTitle] = useState("") // guardar el titulo de una tarea
     const [description, setDescription] = useState("") // guardar la descripcion de una tarea
-
+    const {createTask} = useContext(TaskContext) // desestructurarlo
+    
     // funcion para guardar tarea en el array
     const handleSubmit = (e) => {
         e.preventDefault() //cancela el comportamiento por defecto de un formulario
