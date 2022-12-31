@@ -20,11 +20,15 @@ function App() {
     }])
   }
 
+  function deleteTask(taskId) {
+    setTask(tasks.filter(task => task.id !== taskId)) // por cada id de cada tarea comparar si es el mismo id que me estan pasando. Si coincide la id lo elimina de la lista. Una vez terminado de recorrer guardo ese nuevo array en el "setTask"
+  }
+
   return (
     // Fragmen = div
     <>
       <TaskForm createTask={createTask}/>
-      <TaskList tasks={tasks}/>
+      <TaskList tasks={tasks} deleteTask={deleteTask} />
     </>
   )
 }
